@@ -1,0 +1,6 @@
+INCLUDE options/options.makejail
+
+ARG iris_tag=%%TAG1%%
+ARG iris_ajspec=gh+AppJail-makejails/iris
+
+FROM --entrypoint "${iris_ajspec}" iris:${iris_tag}

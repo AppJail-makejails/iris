@@ -1,0 +1,45 @@
+--- iris.rb.orig	2025-04-08 21:02:33.234486000 -0400
++++ iris.rb	2025-04-08 20:33:04.101180000 -0400
+@@ -257,7 +257,7 @@
+       filepath = Config.messagefile_filename
+     end
+ 
+-    return [] unless File.exists?(filepath)
++    return [] unless File.exist?(filepath)
+ 
+     begin
+       payload = JSON.parse(File.read(filepath))
+@@ -308,7 +308,7 @@
+   end
+ 
+   def self.load_reads
+-    return [] unless File.exists? Config.readfile_filename
++    return [] unless File.exist? Config.readfile_filename
+ 
+     begin
+       read_array = JSON.parse(File.read(Config.readfile_filename))
+@@ -334,13 +334,13 @@
+ 
+   def self.create_message_file
+     raise 'Should not try to create message file in test mode!' if $test_corpus_file
+-    raise 'Message file exists; refusing to overwrite!' if File.exists?(Config::MESSAGE_FILE)
++    raise 'Message file exists; refusing to overwrite!' if File.exist?(Config::MESSAGE_FILE)
+     File.umask(0122)
+     File.open(Config::MESSAGE_FILE, 'w') { |f| f.write('[]') }
+   end
+ 
+   def self.create_read_file
+-    return if File.exists?(Config.readfile_filename)
++    return if File.exist?(Config.readfile_filename)
+ 
+     File.umask(0122)
+     File.open(Config.readfile_filename, 'w') { |f| f.write('[]') }
+@@ -1089,7 +1089,7 @@
+   end
+ 
+   def self.perform_file_checks
+-    unless File.exists?(Config::MESSAGE_FILE)
++    unless File.exist?(Config::MESSAGE_FILE)
+       Display.say "You don't have a message file at #{Config::MESSAGE_FILE}."
+       response = Readline.readline 'Would you like me to create it for you? (y/n) ', true
+ 
