@@ -12,4 +12,3 @@ tags+: 15
 15.sum.amd64: e5366d4baf0b80975fd9e0760440c7e317fa45bde304fc17cdb4e52155486ddf
 15.size.amd64: 218429690
 15.source.amd64: "http://appjail.hpc.at/iris/15-amd64-image.appjail"
-maintenance: "This image is uploading, please wait a moment and try again. If you are importing this image using a Makejail that has the '--<name>_ajspec' argument, you can use the 'reproduce' method to use 'appjail-reproduce'. See 'appjail-image(5)' for details."
